@@ -3,10 +3,11 @@ server {
 
     client_max_body_size 100M;
 
-    root /app/public;
+    root /var/www;
     index index.php index.html index.htm;
+    autoindex on;
 
-    location /pma/ {
+    location /pma {
         root /var/www/html;
         index index.php;
 

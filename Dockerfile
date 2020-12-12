@@ -12,7 +12,7 @@ chmod +x /root/autoclean.sh; \
 chmod +x /docker-entrypoint.sh; \
 mkdir /app; \
 mkdir /run/php/; \
-mkdir -p /app/public; \
+mkdir -p /var/www; \
 apt-get update;
 
 RUN apt-get install -y software-properties-common apt-transport-https \
