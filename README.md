@@ -1,5 +1,4 @@
 LEMP-docker is a LEMP stack ([Nginx][nginx], [MariaDB][mariadb] and [PHP][php]).
-* Based on https://github.com/fbraz3/lemp-docker
 
 Component | `latest-1804`
 ---|---
@@ -7,6 +6,8 @@ Component | `latest-1804`
 [MariaDB][mariadb] |`10.1`
 [PHP][php] |`7.2`
 [phpMyAdmin][phpmyadmin] |`4.9.7`
+
+* Based on https://github.com/fbraz3/lemp-docker
 
 [nginx]: https://www.nginx.com/
 [mariadb]: https://mariadb.org/
