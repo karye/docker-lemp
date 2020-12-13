@@ -34,23 +34,9 @@ php${PHP_VERSION}-xml php${PHP_VERSION}-xsl php${PHP_VERSION}-gd php${PHP_VERSIO
 php${PHP_VERSION}-bz2 php${PHP_VERSION}-bcmath php${PHP_VERSION}-imap php${PHP_VERSION}-gd \
 # php${PHP_VERSION}-mbstring php${PHP_VERSION}-pgsql php${PHP_VERSION}-sqlite3 \
 php${PHP_VERSION}-mbstring \
-php${PHP_VERSION}-xmlrpc php${PHP_VERSION}-zip php${PHP_VERSION}-odbc php${PHP_VERSION}-snmp \
-php${PHP_VERSION}-interbase php${PHP_VERSION}-ldap php${PHP_VERSION}-tidy 
+php${PHP_VERSION}-xmlrpc php${PHP_VERSION}-zip php${PHP_VERSION}-odbc php${PHP_VERSION}-snmp;
+# php${PHP_VERSION}-interbase php${PHP_VERSION}-ldap php${PHP_VERSION}-tidy 
 # php${PHP_VERSION}-memcached php-tcpdf php-redis php-imagick php-mongodb;
-
-#php-phalcon
-# RUN if [ ${PHP_VERSION} \> 7 ]; then \
-#     echo 'deb https://packagecloud.io/phalcon/stable/ubuntu/ bionic main' > /etc/apt/sources.list.d/phalcon_stable.list; \
-#     echo 'deb-src https://packagecloud.io/phalcon/stable/ubuntu/ bionic main' >> /etc/apt/sources.list.d/phalcon_stable.list; \
-#     wget -qO- 'https://packagecloud.io/phalcon/stable/gpgkey' | apt-key add -; \
-#     apt-get update; \
-#     if [ ${PHP_VERSION} \< 7.4 ]; then \
-#         apt-get install -yq php${PHP_VERSION}-phalcon=$PHALCON_VERSION+php${PHP_VERSION}; \
-#     fi; \
-#     if [ ${PHP_VERSION} \> 7.3 ]; then \
-#         apt-get install -yq php${PHP_VERSION}-phalcon php-psr; \
-#     fi; \
-# fi;
 
 #oh maria!
 RUN apt-get install -yq mariadb-server mariadb-client; \
@@ -74,14 +60,6 @@ cd /usr/share && ( \
 # cd /opt/composer && ( \
 #     wget https://raw.githubusercontent.com/composer/getcomposer.org/master/web/installer -O - -q | php -- --quiet; \
 #     ln -s /opt/composer/composer.phar /usr/local/bin/composer; \
-# )
-
-#phalcon devtools
-# RUN cd /opt && ( \
-#     git clone https://github.com/phalcon/phalcon-devtools.git; \
-#     cd phalcon-devtools; \
-#     chmod +x phalcon; \
-#     ln -s /opt/phalcon-devtools/phalcon /usr/local/bin/phalcon; \
 # )
 
 COPY ./conf/ssmtp.conf.template /etc/ssmtp/
