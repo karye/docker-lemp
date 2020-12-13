@@ -13,9 +13,9 @@ COPY ./scripts/docker-entrypoint.sh ./misc/cronfile.final ./misc/cronfile.system
 RUN echo ${PHP_VERSION} > /PHP_VERSION; \
 chmod +x /root/autoclean.sh; \
 chmod +x /docker-entrypoint.sh; \
-mkdir /app; \
+#mkdir /app; \
 mkdir /run/php/; \
-mkdir -p /var/www; \
+#mkdir -p /var/www; \
 apt-get update;
 
 RUN apt-get install -y software-properties-common apt-transport-https \
@@ -54,7 +54,7 @@ php${PHP_VERSION}-interbase php${PHP_VERSION}-ldap php${PHP_VERSION}-tidy
 
 #oh maria!
 RUN apt-get install -yq mariadb-server mariadb-client; \
-cd /var/www/html && ( \
+cd /usr/share && ( \
   wget -q https://files.phpmyadmin.net/phpMyAdmin/${PHPMYADMIN}/phpMyAdmin-${PHPMYADMIN}-all-languages.zip; \
   unzip -oq phpMyAdmin-${PHPMYADMIN}-all-languages.zip; \
   mv phpMyAdmin-${PHPMYADMIN}-all-languages pma; \
@@ -90,6 +90,6 @@ COPY ./monit/cron ./monit/php-fpm ./monit/nginx /etc/monit/conf-enabled/
 COPY ./php/www.conf /etc/php/${PHP_VERSION}/fpm/pool.d/
 COPY ./php/php-fpm.conf ./php/php.ini ./conf/env.conf /etc/php/${PHP_VERSION}/fpm/
 COPY ./nginx/default /etc/nginx/sites-enabled/default
-COPY ./phpmyadmin/config.inc.php /var/www/html/pma/config.inc.php
+COPY ./phpmyadmin/config.inc.php /usr/share/pma/config.inc.php
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
