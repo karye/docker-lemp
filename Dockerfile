@@ -4,8 +4,7 @@ FROM ubuntu:18.04
 # ARG PHALCON_VERSION="3.4.5-1"
 # ARG PHPMYADMIN=4.8.5
 ENV PHP_VERSION=7.3
-ENV PHALCON_VERSION="3.4.5-1"
-ENV PHPMYADMIN=4.8.5
+ENV PHPMYADMIN=4.9.7
 
 COPY ./scripts/autoclean.sh /root/
 COPY ./scripts/docker-entrypoint.sh ./misc/cronfile.final ./misc/cronfile.system ./scripts/build.sql /
