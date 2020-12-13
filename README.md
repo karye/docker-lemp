@@ -4,7 +4,7 @@ Component | `latest-1804`
 ---|---
 [Nginx][nginx] |`2.4`
 [MariaDB][mariadb] |`10.1`
-[PHP][php] |`7.2`
+[PHP][php] |`7.3`
 [phpMyAdmin][phpmyadmin] |`4.9.7`
 
 * Based on https://github.com/fbraz3/lemp-docker
